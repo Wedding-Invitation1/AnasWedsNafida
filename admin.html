@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>RSVP Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-[#1A0004] text-white">
+
+<div id="login" class="min-h-screen flex justify-center items-center">
+
+<div class="bg-[#33060B] p-10 rounded-3xl w-[380px] border border-yellow-600">
+
+<h1 class="text-3xl text-yellow-400 text-center mb-8">
+RSVP Dashboard
+</h1>
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+class="w-full p-4 rounded-xl bg-transparent border border-yellow-500 mb-6">
+
+<button
+onclick="login()"
+class="w-full bg-yellow-500 text-black rounded-xl py-4 font-bold">
+
+Login
+
+</button>
+
+</div>
+
+</div>
+
+<div
+id="dashboard"
+class="hidden p-10">
+
+<h1 class="text-5xl text-yellow-400 mb-8">
+
+Wedding RSVP Dashboard
+
+</h1>
+
+<div
+id="stats"
+class="grid md:grid-cols-4 gap-6 mb-8">
+
+</div>
+
+<table class="w-full">
+
+<thead>
+
+<tr class="bg-yellow-500 text-black">
+
+<th class="p-3">Name</th>
+
+<th>Event</th>
+
+<th>Attendance</th>
+
+<th>Guests</th>
+
+<th>Delete</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+
+</html>

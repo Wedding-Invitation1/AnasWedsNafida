@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Primary Meta Tags -->
+<title>Wedding Invitation | Dr. Anas N & Dr. Nafida Shajihan</title>
+<meta property="og:title" content="Dr. Anas N & Dr. Nafida Shajihan | Wedding Invitation" />
+<meta property="og:description" content="With the blessings of Allah and our families, we warmly invite you to celebrate our Nikah and Reception." />
+<meta property="og:image" content="https://wedding-invitation1.github.io/Anas-Weds-Nafida/assets/images/preview.png" />
+<meta property="og:url" content="https://wedding-invitation.github.io/Anas-Weds-Nafida/" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dr. Anas N & Dr. Nafida Shajihan | Wedding Invitation" />
+<meta name="twitter:description" content="With the blessings of Allah and our families, we warmly invite you to celebrate our Nikah and Reception." />
+<meta name="twitter:image" content="https://wedding-invitation1.github.io/Anas-Weds-Nafida/assets/images/preview.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Dr Anas  & Dr Nafida </title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#D4AF37',
+              rose: '#DFBA6B',
+              hover: '#F5E1B5',
+            },
+            burgundy: {
+              DEFAULT: '#42000B',
+              dark: '#240006',
+              deep: '#1A0004',
+              envelope: '#5C0612',
+            },
+            ivory: '#FFFDF9',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            arabic: ['Amiri', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       STYLING & ANIMATIONS
+       ========================================================================== */
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #1A0004; /* Solid luxury deep burgundy background */
+      color: #FFFDF9;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Text shine animation for the groom and bride names */
+    @keyframes textShine {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
+    .shining-text {
+      background: linear-gradient(
+        to right,
+        #D4AF37 0%,
+        #FFFDF9 25%,
+        #DFBA6B 50%,
+        #FFFDF9 75%,
+        #D4AF37 100%
+      );
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: textShine 4s linear infinite;
+    }
+
+    /* Custom Webkit scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1A0004;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 3px;
+    }
+
+    /* Ambient overlay focus glow */
+    .ambient-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Corner corner ornaments */
+    .bg-ornament {
+      position: fixed;
+      width: clamp(80px, 12vw, 160px);
+      height: clamp(80px, 12vw, 160px);
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .bg-ornament.top-left { top: 0; left: 0; }
+    .bg-ornament.top-right { top: 0; right: 0; transform: scaleX(-1); }
+    .bg-ornament.bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+    .bg-ornament.bottom-right { bottom: 0; right: 0; transform: scale(-1); }
+
+    /* Envelope Opening Animation Fixes */
+    .envelope-box {
+      perspective: 1000px;
+    }
+
+    .envelope-box .invitation-letter {
+      transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s linear 0.45s, opacity 0.8s ease;
+      z-index: 2; /* Initially hidden inside behind the pocket */
+    }
+
+    .envelope-container.is-opened .invitation-letter {
+      transform: translateY(-82%) scale(1.02);
+      z-index: 50; /* Goes on top of everything once it pops out */
+      opacity: 1;
+    }
+
+    .envelope-box .flap {
+      transform-origin: top center;
+      transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 20;
+    }
+
+    .envelope-container.is-opened .flap {
+      transform: rotateX(180deg);
+      z-index: 1; /* Moves behind once opened */
+    }
+
+    /* Gentle floating animation for envelope */
+    .envelope-container:not(.is-opened) {
+      animation: gentleFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.01); }
+    }
+
+    /* Scroll reveal cards */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Wave animation for audio button */
+    @keyframes pulseWave {
+      0% { transform: scale(0.85); opacity: 0.8; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+    @keyframes luxuryHero {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.04) translateY(-4px);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.hero-bg {
+    animation: luxuryHero 25s ease-in-out infinite;
+}
+    .pulse-ring {
+      animation: pulseWave 2s infinite linear;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient background elements -->
+  <canvas id="ambient-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-[2]"></canvas>
+  <div class="ambient-overlay"></div>
+
+  <!-- Decorative Corner Ornaments -->
+  <div class="bg-ornament top-left">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <path d="M 0,0 L 110,0 C 70,40 40,70 0,110 Z" fill="rgba(212, 175, 55, 0.015)" />
+      <line x1="0" y1="4" x2="115" y2="4" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="0" y1="8" x2="105" y2="8" stroke="#D4AF37" stroke-width="0.7" />
+      <line x1="4" y1="0" x2="4" y2="115" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="8" y1="0" x2="8" y2="105" stroke="#D4AF37" stroke-width="0.7" />
+      <path d="M 8,8 Q 45,45 90,8" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 8,8 Q 45,45 8,90" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 22,22 L 28,16 L 22,10 L 16,16 Z" fill="#D4AF37" opacity="0.85" />
+      <circle cx="22" cy="16" r="1.5" fill="#FFFDF9" />
+    </svg>
+  </div>
+  <div class="bg-ornament top-right">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <path d="M 0,0 L 110,0 C 70,40 40,70 0,110 Z" fill="rgba(212, 175, 55, 0.015)" />
+      <line x1="0" y1="4" x2="115" y2="4" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="0" y1="8" x2="105" y2="8" stroke="#D4AF37" stroke-width="0.7" />
+      <line x1="4" y1="0" x2="4" y2="115" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="8" y1="0" x2="8" y2="105" stroke="#D4AF37" stroke-width="0.7" />
+      <path d="M 8,8 Q 45,45 90,8" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 8,8 Q 45,45 8,90" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 22,22 L 28,16 L 22,10 L 16,16 Z" fill="#D4AF37" opacity="0.85" />
+      <circle cx="22" cy="16" r="1.5" fill="#FFFDF9" />
+    </svg>
+  </div>
+  <div class="bg-ornament bottom-left">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <path d="M 0,0 L 110,0 C 70,40 40,70 0,110 Z" fill="rgba(212, 175, 55, 0.015)" />
+      <line x1="0" y1="4" x2="115" y2="4" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="0" y1="8" x2="105" y2="8" stroke="#D4AF37" stroke-width="0.7" />
+      <line x1="4" y1="0" x2="4" y2="115" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="8" y1="0" x2="8" y2="105" stroke="#D4AF37" stroke-width="0.7" />
+      <path d="M 8,8 Q 45,45 90,8" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 8,8 Q 45,45 8,90" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 22,22 L 28,16 L 22,10 L 16,16 Z" fill="#D4AF37" opacity="0.85" />
+      <circle cx="22" cy="16" r="1.5" fill="#FFFDF9" />
+    </svg>
+  </div>
+  <div class="bg-ornament bottom-right">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <path d="M 0,0 L 110,0 C 70,40 40,70 0,110 Z" fill="rgba(212, 175, 55, 0.015)" />
+      <line x1="0" y1="4" x2="115" y2="4" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="0" y1="8" x2="105" y2="8" stroke="#D4AF37" stroke-width="0.7" />
+      <line x1="4" y1="0" x2="4" y2="115" stroke="#D4AF37" stroke-width="1.2" stroke-dasharray="2 1.5" />
+      <line x1="8" y1="0" x2="8" y2="105" stroke="#D4AF37" stroke-width="0.7" />
+      <path d="M 8,8 Q 45,45 90,8" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 8,8 Q 45,45 8,90" stroke="#D4AF37" stroke-width="0.8" fill="none" stroke-linecap="round" />
+      <path d="M 22,22 L 28,16 L 22,10 L 16,16 Z" fill="#D4AF37" opacity="0.85" />
+      <circle cx="22" cy="16" r="1.5" fill="#FFFDF9" />
+    </svg>
+  </div>
+
+  <!-- Background Music Player -->
+  <audio id="wedding-music" loop preload="auto" src="assets/bgmusic.mp3"></audio>
+
+  <!-- INTRO LUXURY ENVELOPE SCREEN -->
+  <div id="intro-screen" class="fixed inset-0 bg-[radial-gradient(circle_at_center,_#5C0612_0%,_#1A0004_100%)] z-[9999] flex flex-col justify-center items-center p-6 transition-all duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)]">
+    <!-- Center ambient soft gold halo -->
+    <div class="absolute w-[80vw] h-[80vw] max-w-[600px] max-h-[600px] bg-[radial-gradient(circle,_rgba(226,184,78,0.12)_0%,_transparent_70%)] rounded-full blur-[45px] pointer-events-none animate-pulse"></div>
+
+    <!-- Interactive Envelope Box -->
+    <div class="envelope-container relative w-full max-w-[440px] aspect-[100/68] cursor-pointer" onclick="openInvitation()">
+      <div class="envelope-box relative w-full h-full bg-[#5C0612] border border-gold/15 rounded-xl shadow-[0_30px_60px_rgba(15,8,11,0.65)] overflow-visible">
+        
+        <!-- Inside border gold linings -->
+        <div class="absolute inset-1.5 border border-gold/10 rounded-[10px] pointer-events-none"></div>
+
+        <!-- Sliding Invitation Letter Sheet -->
+        <div class="invitation-letter absolute top-[5%] left-[5%] w-[90%] h-[90%] bg-burgundy-dark rounded-lg flex flex-col justify-center items-center p-6 text-center border border-gold/25 opacity-80 scale-95 shadow-inner">
+          <div class="absolute inset-1.5 border border-gold/15 rounded-md pointer-events-none"></div>
+          
+          <div class="font-arabic text-gold text-lg mb-2 select-none">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <div class="font-sans text-[0.6rem] tracking-[4px] text-gold-rose uppercase mb-1 font-medium select-none">THE WEDDING OF</div>
+          <div class="font-serif text-xl sm:text-2xl font-semibold text-gold tracking-wider my-2">Dr ANAS & Dr NAFIDA </div>
+          <div class="font-sans text-[0.62rem] tracking-[3px] text-gold uppercase font-semibold mt-1">sunday, 20th September 2026</div>
+          <div class="text-gold text-xs mt-3 font-display animate-pulse">✿ 💍 ✿</div>
+        </div>
+
+        <!-- Lower Pocket Layer (stuck inside envelope, keeping invitation hidden until opened) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-burgundy-envelope to-burgundy-dark rounded-xl z-[10] pointer-events-none border-t border-gold/20" style="clip-path: polygon(0% 40%, 50% 75%, 100% 40%, 100% 100%, 0% 100%);"></div>
+
+        <!-- Folding Flap (folds backwards) -->
+        <div class="flap absolute inset-0 bg-[#5C0612] rounded-t-xl border-b border-black/10 shadow-sm" style="clip-path: polygon(0% 0%, 100% 0%, 50% 55%);"></div>
+
+        <!-- Wax Seal Medallion Button -->
+        <div id="wax-seal" class="absolute top-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full z-[30] shadow-[0_8px_20px_rgba(0,0,0,0.5),_inset_0_2px_4px_rgba(255,255,255,0.4)] flex items-center justify-center transition-all duration-500" style="background: radial-gradient(circle at 35% 35%, #FFFDFB 0%, #D4AF37 50%, #7C5D1F 100%);">
+          <div class="absolute inset-[8%] border border-dashed border-white/20 rounded-full"></div>
+          <div class="absolute -inset-1 border-2 border-gold rounded-full animate-ping opacity-25"></div>
+          <span class="font-display font-bold text-burgundy-dark text-base tracking-wider select-none">A & N</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Click helper text -->
+    <button class="mt-14 flex items-center gap-3 font-display text-[0.75rem] sm:text-xs tracking-[5px] text-gold uppercase hover:text-gold-hover transition-all opacity-80" onclick="openInvitation()">
+      <span class="w-8 h-[1px] bg-gold/40"></span>
+      <span class="animate-pulse flex items-center gap-2">✿ Click to Open Invitation ✿</span>
+      <span class="w-8 h-[1px] bg-gold/40"></span>
+    </button>
+  </div>
+
+  <!-- MAIN INVITATION SITE (initially hidden) -->
+  <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000 ease-out relative z-10 w-full flex flex-col min-h-screen">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden">
+      <!-- Hero Background Image -->
+<div class="absolute inset-0 -z-10">
+    <img
+        src="assets/images/hero.png"
+        alt="Wedding Background"
+        class="hero-bg w-full h-full object-cover"
+    >
+    <div class="absolute inset-0 bg-black/45"></div>
+</div>
+      <!-- Background subtle shadow overlays -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none z-1"></div>
+
+      <!-- Corner borders inside section -->
+      <div class="absolute top-8 left-8 w-10 h-10 border-t border-l border-gold/20 pointer-events-none"></div>
+      <div class="absolute top-8 right-8 w-10 h-10 border-t border-r border-gold/20 pointer-events-none"></div>
+      <div class="absolute bottom-8 left-8 w-10 h-10 border-b border-l border-gold/20 pointer-events-none"></div>
+      <div class="absolute bottom-8 right-8 w-10 h-10 border-b border-r border-gold/20 pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-4xl flex flex-col items-center">
+        <!-- Bismillah -->
+        <div class="font-arabic text-3xl sm:text-4xl md:text-5xl text-gold mb-8 tracking-wide drop-shadow-md select-none">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        
+        <!-- Elegant Subheading (Gold, Upper, Letter Spaced) -->
+        <div class="font-sans text-[0.7rem] sm:text-[0.8rem] tracking-[7px] sm:tracking-[9px] text-gold font-bold uppercase mb-6 sm:mb-8 select-none">THE WEDDING OF</div>
+
+        <!-- Groom and Bride names with gold gradient shine -->
+        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-semibold tracking-wider leading-snug my-4 filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)] select-none">
+          <span class="shining-text inline-block py-2">Dr ANAS </span>
+          <span class="font-serif italic text-gold-rose text-3xl sm:text-5xl font-light mx-4 block sm:inline-block">&</span>
+          <span class="shining-text inline-block py-2">Dr NAFIDA </span>
+        </h1>
+
+        <!-- Divider line -->
+        <div class="w-40 sm:w-56 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent my-6 sm:my-8"></div>
+
+        <!-- Inviting tag -->
+        <p class="font-sans text-xs sm:text-[0.75rem] tracking-[4px] leading-relaxed text-gold-rose/85 max-w-2xl uppercase font-light my-2 px-4">
+          Together with our families, we invite you to celebrate the beginning of our beautiful journey together.
+        </p>
+
+        <!-- Dynamic Formatted Date -->
+        <div class="font-serif text-lg sm:text-2xl italic tracking-wide text-gold-hover mt-4 filter drop-shadow">
+          sunday, 20 September 2026
+        </div>
+      </div>
+
+      <!-- Mouse Scroll indicator -->
+      <div class="absolute bottom-8 z-10 flex flex-col items-center gap-2 text-gold/60">
+        <span class="font-sans text-[0.6rem] tracking-[4px] text-gold uppercase font-medium">Scroll Down</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="animate-bounce text-gold-rose"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </section>
+
+    <!-- QURAN VERSE SECTION -->
+    <section class="relative w-full py-24 px-6 overflow-hidden bg-transparent">
+      <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+        <div class="flex flex-col items-center">
+          
+          <!-- Heart ornament icon -->
+          <div class="mb-8 p-3 rounded-full border border-gold/20 bg-burgundy-dark/40">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold fill-gold/5 animate-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+
+          <!-- Beautiful verse -->
+          <h2 class="font-arabic text-2xl sm:text-3xl md:text-4xl text-gold-hover leading-[2.2] md:leading-[2.5] mb-8 max-w-3xl mx-auto tracking-wide selection:bg-gold/15">
+            وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+          </h2>
+
+          <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mb-8"></div>
+
+          <p class="font-serif text-lg sm:text-xl md:text-2xl text-ivory/90 leading-relaxed max-w-3xl mx-auto italic font-light px-4">
+            "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."
+          </p>
+
+          <div class="mt-8 inline-flex items-center gap-3">
+            <span class="w-4 h-[1px] bg-gold"></span>
+            <span class="font-sans text-[0.7rem] tracking-[4px] text-gold uppercase font-semibold">Surah Ar-Rum — 30:21</span>
+            <span class="w-4 h-[1px] bg-gold"></span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE COUNTDOWN SECTION -->
+    <section class="relative w-full py-20 px-6 bg-transparent overflow-hidden">
+      <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+        <div class="flex flex-col items-center">
+          <div class="font-arabic text-gold text-2xl mb-2 select-none">العد التنازلي</div>
+          <h2 class="font-display text-xl sm:text-2xl md:text-3xl tracking-[4px] uppercase text-gold mb-12">Awaiting Our Union</h2>
+
+          <!-- Countdown Display Grid -->
+          <div class="flex items-center justify-around w-full max-w-2xl bg-burgundy-dark/65 border border-gold/20 backdrop-blur-md rounded-2xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+            <div class="flex flex-col items-center flex-1">
+              <span id="cd-days" class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">00</span>
+              <span class="font-sans text-[0.55rem] sm:text-[0.7rem] tracking-[2px] uppercase text-gold-rose/75 mt-2 font-medium">Days</span>
+            </div>
+            <div class="h-12 w-[1px] bg-gradient-to-b from-transparent via-gold/30 to-transparent self-center"></div>
+            
+            <div class="flex flex-col items-center flex-1">
+              <span id="cd-hours" class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">00</span>
+              <span class="font-sans text-[0.55rem] sm:text-[0.7rem] tracking-[2px] uppercase text-gold-rose/75 mt-2 font-medium">Hours</span>
+            </div>
+            <div class="h-12 w-[1px] bg-gradient-to-b from-transparent via-gold/30 to-transparent self-center"></div>
+
+            <div class="flex flex-col items-center flex-1">
+              <span id="cd-minutes" class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">00</span>
+              <span class="font-sans text-[0.55rem] sm:text-[0.7rem] tracking-[2px] uppercase text-gold-rose/75 mt-2 font-medium">Mins</span>
+            </div>
+            <div class="h-12 w-[1px] bg-gradient-to-b from-transparent via-gold/30 to-transparent self-center"></div>
+
+            <div class="flex flex-col items-center flex-1">
+              <span id="cd-seconds" class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-gold tracking-tight">00</span>
+              <span class="font-sans text-[0.55rem] sm:text-[0.7rem] tracking-[2px] uppercase text-gold-rose/75 mt-2 font-medium">Secs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEREMONY DETAILS SECTION -->
+    <section class="relative w-full py-24 px-6 bg-transparent overflow-hidden">
+      <div class="max-w-4xl mx-auto relative z-10 reveal">
+        <div class="flex flex-col items-center text-center">
+          <div class="font-arabic text-gold text-2xl mb-2 select-none">التفاصيل</div>
+          <h2 class="font-display text-xl sm:text-2xl md:text-3xl tracking-[4px] uppercase text-gold mb-12">Details of the Blessed Day</h2>
+
+          <!-- Event Card -->
+          <div class="relative w-full max-w-3xl bg-burgundy-dark border border-gold/40 rounded-[60px] sm:rounded-[100px] rounded-br-2xl rounded-bl-2xl px-6 sm:px-12 md:px-16 py-12 sm:py-16 shadow-[0_30px_70px_rgba(0,0,0,0.5)] overflow-hidden">
+            <!-- Double gold borders inside card -->
+            <div class="absolute inset-2 sm:inset-3 border border-double border-gold/30 rounded-[50px] sm:rounded-[85px] rounded-br-xl rounded-bl-xl pointer-events-none"></div>
+
+            <div class="font-display text-gold/85 text-lg mb-4 select-none">✦ 💍 ✦</div>
+            <div class="font-sans text-[0.7rem] sm:text-[0.75rem] tracking-[4px] font-bold uppercase text-gold mb-2">Ceremony</div>
+            <h3 class="font-display text-2xl sm:text-4xl font-medium text-gold mb-8">Nikah </h3>
+
+            <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-10"></div>
+
+            <!-- Detail Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10 text-center sm:text-left">
+              <!-- Date Card -->
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 border border-gold/10 rounded-xl bg-burgundy-deep/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold-rose shrink-0"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <div class="flex flex-col">
+                  <span class="font-sans text-[0.65rem] tracking-[2px] uppercase text-gold font-bold mb-1">Date</span>
+                  <span class="font-serif text-base sm:text-lg text-ivory/95">sunday, 20 September 2026</span>
+                </div>
+              </div>
+
+              <!-- Time Card -->
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 border border-gold/10 rounded-xl bg-burgundy-deep/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold-rose shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div class="flex flex-col">
+                  <span class="font-sans text-[0.65rem] tracking-[2px] uppercase text-gold font-bold mb-1">Time</span>
+                  <span class="font-serif text-base sm:text-lg text-ivory/95">10:30 AM onwards</span>
+                </div>
+              </div>
+
+              <!-- Venue Details Card -->
+              <div class="sm:col-span-2 flex flex-col sm:flex-row items-center sm:items-start gap-4 p-5 sm:p-6 border border-gold/15 rounded-2xl bg-burgundy-deep/60 text-center sm:text-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold-rose shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div class="flex flex-col w-full">
+                  <span class="font-sans text-[0.65rem] tracking-[2px] uppercase text-gold font-bold mb-1">Venue & Location</span>
+                  <span class="font-display text-lg sm:text-xl font-medium text-gold">Lavender Hall, Vrindavanam Convention Centre</span>
+                  <span class="font-serif text-sm italic text-gold-rose/75 mt-1 leading-relaxed"> Vrindavanam Convention Centre, Palode, TVM</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="font-serif text-base sm:text-lg italic text-gold-rose/75 leading-relaxed max-w-xl mx-auto mb-10">
+              With the blessings of Allah (SWT), together with our families, we invite you to witness the sacred union of our Nikah and share in our joy.
+            </p>
+
+            <!-- Location Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-20">
+              <!-- Google Maps View Location -->
+              <a href="https://maps.app.goo.gl/vn6fk5bsRA1X38wp6" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 font-display text-[0.7rem] sm:text-[0.75rem] font-bold tracking-[2px] uppercase text-burgundy-dark bg-gradient-to-r from-gold to-gold-rose hover:from-gold-rose hover:to-gold px-8 py-4 rounded-lg border border-gold shadow-[0_4px_15px_rgba(216,178,90,0.15)] hover:shadow-[0_6px_25px_rgba(216,178,90,0.3)] hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                View Location
+              </a>
+
+              <!-- Add to Calendar Link -->
+              <a id="calendar-link" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 font-display text-[0.7rem] sm:text-[0.75rem] font-bold tracking-[2px] uppercase text-ivory bg-transparent hover:text-gold border border-gold/30 hover:border-gold px-8 py-4 rounded-lg hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+     <!-- CEREMONY DETAILS SECTION -->
+    <section class="relative w-full py-24 px-6 bg-transparent overflow-hidden">
+      <div class="max-w-4xl mx-auto relative z-10 reveal">
+        <div class="flex flex-col items-center text-center">
+          <div class="font-arabic text-gold text-2xl mb-2 select-none">التفاصيل</div>
+          <h2 class="font-display text-xl sm:text-2xl md:text-3xl tracking-[4px] uppercase text-gold mb-12">An Evening to Remember</h2>
+
+          <!-- Event Card -->
+          <div class="relative w-full max-w-3xl bg-burgundy-dark border border-gold/40 rounded-[60px] sm:rounded-[100px] rounded-br-2xl rounded-bl-2xl px-6 sm:px-12 md:px-16 py-12 sm:py-16 shadow-[0_30px_70px_rgba(0,0,0,0.5)] overflow-hidden">
+            <!-- Double gold borders inside card -->
+            <div class="absolute inset-2 sm:inset-3 border border-double border-gold/30 rounded-[50px] sm:rounded-[85px] rounded-br-xl rounded-bl-xl pointer-events-none"></div>
+
+            <div class="font-display text-gold/85 text-lg mb-4 select-none">✦ 🌸 ✦</div>
+            <div class="font-sans text-[0.7rem] sm:text-[0.75rem] tracking-[4px] font-bold uppercase text-gold mb-2">Ceremony</div>
+            <h3 class="font-display text-2xl sm:text-4xl font-medium text-gold mb-8">Reception </h3>
+
+            <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-10"></div>
+
+            <!-- Detail Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10 text-center sm:text-left">
+              <!-- Date Card -->
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 border border-gold/10 rounded-xl bg-burgundy-deep/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold-rose shrink-0"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <div class="flex flex-col">
+                  <span class="font-sans text-[0.65rem] tracking-[2px] uppercase text-gold font-bold mb-1">Date</span>
+                  <span class="font-serif text-base sm:text-lg text-ivory/95">sunday, 20 September 2026</span>
+                </div>
+              </div>
+
+              <!-- Time Card -->
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 border border-gold/10 rounded-xl bg-burgundy-deep/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold-rose shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div class="flex flex-col">
+                  <span class="font-sans text-[0.65rem] tracking-[2px] uppercase text-gold font-bold mb-1">Time</span>
+                  <span class="font-serif text-base sm:text-lg text-ivory/95">5:00 to 8:30 PM </span>
+                </div>
+              </div>
+
+              <!-- Venue Details Card -->
+              <div class="sm:col-span-2 flex flex-col sm:flex-row items-center sm:items-start gap-4 p-5 sm:p-6 border border-gold/15 rounded-2xl bg-burgundy-deep/60 text-center sm:text-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gold-rose shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div class="flex flex-col w-full">
+                  <span class="font-sans text-[0.65rem] tracking-[2px] uppercase text-gold font-bold mb-1">Venue & Location</span>
+                  <span class="font-display text-lg sm:text-xl font-medium text-gold">Diya Gardens Convention Centre</span>
+                  <span class="font-serif text-sm italic text-gold-rose/75 mt-1 leading-relaxed">Diya Gardens Convention Centre, Attingal,TVM</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="font-serif text-base sm:text-lg italic text-gold-rose/75 leading-relaxed max-w-xl mx-auto mb-10">
+              By the grace of Allah, together with our families, we joyfully invite you to celebrate our wedding.
+            </p>
+
+            <!-- Location Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-20">
+              <!-- Google Maps View Location -->
+              <a href="https://maps.app.goo.gl/TJsFQmUA1ukDUptDA" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 font-display text-[0.7rem] sm:text-[0.75rem] font-bold tracking-[2px] uppercase text-burgundy-dark bg-gradient-to-r from-gold to-gold-rose hover:from-gold-rose hover:to-gold px-8 py-4 rounded-lg border border-gold shadow-[0_4px_15px_rgba(216,178,90,0.15)] hover:shadow-[0_6px_25px_rgba(216,178,90,0.3)] hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                View Location
+              </a>
+
+              <!-- Add to Calendar Link -->
+              <a id="reception-calendar-link" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 font-display text-[0.7rem] sm:text-[0.75rem] font-bold tracking-[2px] uppercase text-ivory bg-transparent hover:text-gold border border-gold/30 hover:border-gold px-8 py-4 rounded-lg hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                Add to Calendar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- FAMILIES SECTION -->
+    <section class="relative w-full py-24 px-6 bg-transparent overflow-hidden">
+      <div class="max-w-5xl mx-auto relative z-10 reveal">
+        <div class="flex flex-col items-center text-center">
+          <div class="font-arabic text-gold text-2xl mb-2 select-none">العائلات</div>
+          <h2 class="font-display text-xl sm:text-2xl md:text-3xl tracking-[4px] uppercase text-gold mb-16">The Families</h2>
+
+          <!-- Parents Info -->
+          <div class="grid grid-cols-1 lg:grid-cols-[1fr_120px_1fr] items-center gap-10 lg:gap-4 w-full">
+            
+            <!-- Groom's Parents Card -->
+            <div class="relative border border-gold/40 rounded-t-[120px] rounded-b-2xl bg-burgundy-dark/90 backdrop-blur-md px-6 sm:px-12 py-12 text-center shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+              <div class="absolute inset-2 border border-gold/20 rounded-t-[110px] rounded-b-lg pointer-events-none"></div>
+
+              <span class="font-sans text-[0.62rem] sm:text-[0.68rem] tracking-[3px] uppercase text-gold font-bold mb-6 inline-block">Family of Groom</span>
+              
+              <div class="w-24 h-24 rounded-full border border-gold/40 mx-auto mb-6 flex items-center justify-center bg-gradient-to-tr from-burgundy-deep to-burgundy-envelope shadow-md select-none">
+                <span class="font-display text-2xl font-medium text-gold">A</span>
+              </div>
+
+              <h3 class="font-serif text-2xl font-semibold text-gold mb-4">Dr Anas N </h3>
+              <div class="w-12 h-[1px] bg-gold/30 mx-auto mb-4"></div>
+
+              <div class="flex flex-col">
+                <span class="font-sans text-[0.6rem] tracking-[2px] uppercase text-gold-rose/60 mb-2 font-semibold">Parents of Groom</span>
+                <p class="font-serif text-base sm:text-lg italic text-gold-hover leading-relaxed">Son of Mr. Nassar S & Mrs. Haseena Nassar</p>
+              </div>
+            </div>
+
+            <!-- separator -->
+            <div class="flex flex-row lg:flex-col items-center justify-center gap-4 lg:gap-2">
+              <div class="h-[1px] lg:h-20 w-16 lg:w-[1px] bg-gradient-to-r lg:bg-gradient-to-b from-transparent via-gold/50 to-transparent"></div>
+              <div class="w-12 h-12 border border-gold/45 rounded-full flex items-center justify-center font-display text-sm font-semibold text-gold bg-burgundy-deep/85 select-none">&</div>
+              <div class="h-[1px] lg:h-20 w-16 lg:w-[1px] bg-gradient-to-r lg:bg-gradient-to-b from-transparent via-gold/50 to-transparent"></div>
+            </div>
+
+            <!-- Bride's Parents Card -->
+            <div class="relative border border-gold/40 rounded-t-[120px] rounded-b-2xl bg-burgundy-dark/90 backdrop-blur-md px-6 sm:px-12 py-12 text-center shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+              <div class="absolute inset-2 border border-gold/20 rounded-t-[110px] rounded-b-lg pointer-events-none"></div>
+
+              <span class="font-sans text-[0.62rem] sm:text-[0.68rem] tracking-[3px] uppercase text-gold font-bold mb-6 inline-block">Family of Bride</span>
+              
+              <div class="w-24 h-24 rounded-full border border-gold/40 mx-auto mb-6 flex items-center justify-center bg-gradient-to-tr from-burgundy-deep to-burgundy-envelope shadow-md select-none">
+                <span class="font-display text-2xl font-medium text-gold">L</span>
+              </div>
+
+              <h3 class="font-display text-2xl font-semibold text-gold mb-4"> Dr Nafida Shajihan </h3>
+              <div class="w-12 h-[1px] bg-gold/30 mx-auto mb-4"></div>
+
+              <div class="flex flex-col">
+                <span class="font-sans text-[0.6rem] tracking-[2px] uppercase text-gold-rose/60 mb-2 font-semibold">Parents of Bride</span>
+                <p class="font-serif text-base sm:text-lg italic text-gold-hover leading-relaxed">Daughter of Mr. Shajihan M & Mrs. Huda Shajihan</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- RSVP SECTION -->
+<section class="relative w-full py-24 px-6 reveal">
+
+    <div class="max-w-3xl mx-auto text-center">
+
+        <div class="font-arabic text-gold text-2xl mb-2">
+            تأكيد الحضور
+        </div>
+
+        <h2 class="font-display text-3xl tracking-[4px] uppercase text-gold">
+            Celebrate With Us
+        </h2>
+
+        <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8"></div>
+
+        <p class="font-serif italic text-gold-rose max-w-xl mx-auto mb-12">
+            We would be honoured to celebrate both occasions with you.
+            Kindly confirm your attendance.
+        </p>
+
+        <div class="grid gap-6">
+
+            <!-- NIKAH -->
+            <button
+                onclick="openRSVP('Nikah')"
+                class="w-full bg-gradient-to-r from-gold to-gold-rose text-burgundy-dark rounded-xl py-6 transition duration-300 hover:scale-[1.02] shadow-lg">
+
+                <div class="font-display text-xl tracking-[4px] uppercase">
+                    ✦ Nikah RSVP ✦
+                </div>
+
+                <div class="mt-2 font-serif italic">
+                    Confirm Attendance →
+                </div>
+
+            </button>
+
+            <!-- RECEPTION -->
+            <button
+                onclick="openRSVP('Reception')"
+                class="w-full bg-gradient-to-r from-gold to-gold-rose text-burgundy-dark rounded-xl py-6 transition duration-300 hover:scale-[1.02] shadow-lg">
+
+                <div class="font-display text-xl tracking-[4px] uppercase">
+                    ✦ Reception RSVP ✦
+                </div>
+
+                <div class="mt-2 font-serif italic">
+                    Confirm Attendance →
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- FOOTER WITH BEAUTIFUL ISLAMIC CLOSING BLESSINGS -->
+    
+    <footer class="relative w-full py-20 px-6 bg-transparent border-t border-gold/15 text-center overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(212,175,55,0.015)_0%,_transparent_60%)] pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto relative z-10 flex flex-col items-center reveal">
+        <!-- Traditional gold line vector crest -->
+        <svg class="w-12 h-12 text-gold/60 mb-6 stroke-1 fill-none" viewBox="0 0 100 100">
+          <path d="M50 15 C 40 30, 20 40, 20 55 C 20 70, 32 82, 50 85 C 68 82, 80 70, 80 55 C 80 40, 60 30, 50 15 Z M42 55 A 8 8 0 1 1 58 55 A 8 8 0 1 1 42 55" />
+        </svg>
+
+        <!-- Final Arabic prayer blessing -->
+        <div class="font-arabic text-gold-rose text-2xl sm:text-3xl leading-relaxed mb-6 select-none">بَارَكَ اللَّهُ لَكُمْ وَبَارَكَ عَلَيْكُمْ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</div>
+        
+        <p class="font-serif text-base sm:text-lg italic text-ivory/85 max-w-xl mx-auto leading-relaxed mb-8 px-4">
+          "May Allah bless you and shower His blessings upon you and join you together in goodness."
+        </p>
+
+        
+        </div>
+      </div>
+    </footer>
+
+    <!-- FLOATING MUSIC TOGGLE CONTROLLER -->
+    <button id="music-button" onclick="togglePlayState()" class="fixed bottom-6 right-6 w-12 h-12 rounded-full z-[999] bg-gradient-to-tr from-gold to-gold-rose shadow-[0_8px_20px_rgba(0,0,0,0.5)] focus:outline-none flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95" aria-label="Toggle background music">
+      <!-- Animated rings when playing -->
+      <div id="ring-1" class="pulse-ring absolute -inset-2 border border-gold rounded-full opacity-25 pointer-events-none hidden"></div>
+      <div id="ring-2" class="pulse-ring absolute -inset-4 border border-gold-rose rounded-full opacity-15 pointer-events-none [animation-delay:0.5s] hidden"></div>
+
+      <!-- Audio play / mute speaker vector icons -->
+      <svg id="music-playing-icon" class="w-5 h-5 text-burgundy-dark hidden animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+      <svg id="music-muted-icon" class="w-5 h-5 text-burgundy-dark/65" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
+    </button>
+
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT DYNAMICS & COUNTDOWN LOGIC
+       ========================================================================== */ -->
+  <!-- RSVP MODAL -->
+<div id="rsvpModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[9999] px-4">
+
+    <div class="bg-burgundy-dark border border-gold/30 rounded-3xl w-full max-w-md p-8 relative">
+
+        <button onclick="closeRSVP()"
+            class="absolute top-4 right-5 text-gold text-2xl">
+            ×
+        </button>
+
+        <h2 id="rsvpTitle"
+            class="font-display text-2xl text-gold text-center tracking-[3px] mb-8">
+            RSVP
+        </h2>
+
+        <form id="rsvpForm" class="space-y-5">
+
+            <input
+                id="guestName"
+                required
+                placeholder="Guest Name"
+                class="w-full bg-transparent border border-gold/30 rounded-xl p-4 outline-none text-white">
+
+            <select
+                id="attendance"
+                required
+                class="w-full bg-burgundy-dark border border-gold/30 rounded-xl p-4 text-white">
+
+                <option value="" selected disabled>Will you attend?</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+
+            </select>
+
+            <input
+                id="guests"
+                type="number"
+                min="1"
+                value=""
+                required
+                placeholder="Number of Guests"
+                class="w-full bg-transparent border border-gold/30 rounded-xl p-4 text-white">
+
+            <button
+                id="submitBtn"
+                type="submit"
+                class="w-full bg-gradient-to-r from-gold to-gold-rose text-burgundy-dark py-4 rounded-xl font-display tracking-[3px]">
+
+                Confirm Attendance
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+  <!-- THANK YOU MODAL -->
+<div id="thankYouModal"
+class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[9999] px-4">
+
+<div class="bg-burgundy-dark border border-gold/30 rounded-3xl w-full max-w-md p-8 text-center">
+
+<div class="text-5xl mb-5">🤍</div>
+
+<h2 class="font-display text-4xl text-gold tracking-[4px] uppercase mb-6">
+Thank You
+</h2>
+
+<p
+id="thankMessage"
+class="font-serif italic text-gold-rose leading-8 mb-8">
+</p>
+
+<button
+onclick="closeThankYou()"
+class="bg-gradient-to-r from-gold to-gold-rose text-burgundy-dark px-8 py-3 rounded-xl font-display tracking-[3px]">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+  <script>
+    const WEDDING_DATE_ISO = '2026-09-20T11:30:00';
+
+    // 1. Setup Google Calendar Template Link dynamically
+    function initCalendarLink() {
+  const title = encodeURIComponent("Nikah of Dr Anas N & Dr Nafida Shajihan");
+
+  const start = new Date(2026, 8, 20, 11, 30); // 20 Sept 2026, 11:30 AM
+
+  const format = (d) => {
+    return d.getUTCFullYear() +
+      String(d.getUTCMonth() + 1).padStart(2, '0') +
+      String(d.getUTCDate()).padStart(2, '0') + 'T' +
+      String(d.getUTCHours()).padStart(2, '0') +
+      String(d.getUTCMinutes()).padStart(2, '0') +
+      String(d.getUTCSeconds()).padStart(2, '0') + 'Z';
+  };
+
+  const details = encodeURIComponent(
+    "With the blessings of Allah and our families, we warmly invite you to celebrate our wedding."
+  );
+
+  const location = encodeURIComponent(
+    "Vrindavanam Convention Centre, Palode, TVM"
+  );
+
+  const gCalUrl =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+    `&text=${title}` +
+    `&dates=${format(start)}` +
+    `&details=${details}` +
+    `&location=${location}`;
+
+  document.getElementById("calendar-link").href = gCalUrl;
+}
+
+function initReceptionCalendarLink() {
+
+  const title = encodeURIComponent("Reception of Dr Anas N & Dr Nafida Shajihan");
+
+  const start = new Date(2026, 8, 20, 17, 0); // 5:00 PM
+  const end = new Date(2026, 8, 20, 20, 30); // 8:30 PM
+
+  const format = (d) => {
+    return d.getUTCFullYear() +
+      String(d.getUTCMonth() + 1).padStart(2, '0') +
+      String(d.getUTCDate()).padStart(2, '0') + 'T' +
+      String(d.getUTCHours()).padStart(2, '0') +
+      String(d.getUTCMinutes()).padStart(2, '0') +
+      String(d.getUTCSeconds()).padStart(2, '0') + 'Z';
+  };
+
+  const details = encodeURIComponent("Join us for the Reception celebration.");
+
+  const location = encodeURIComponent("Diya Gardens Convention Centre,Attingal,TVM");
+
+  const url =
+  `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+  `&text=${title}` +
+  `&dates=${format(start)}/${format(end)}` +
+  `&details=${details}` +
+  `&location=${location}`;
+
+  document.getElementById("reception-calendar-link").href = url;
+}
+
+    // 2. Open Envelope Mechanics with correct paper layering
+    function openInvitation() {
+      const container = document.querySelector('.envelope-container');
+      if (container.classList.contains('is-opened')) return;
+
+      container.classList.add('is-opened');
+      
+      // Start music automatically
+      const music = document.getElementById('wedding-music');
+      music.play().then(() => {
+        setMusicPlayingUI(true);
+      }).catch((e) => {
+        console.log("Autoplay blocked:", e);
+      });
+
+      // Slide up the full screen contents and dismiss envelope screen gracefully
+      setTimeout(() => {
+        const intro = document.getElementById('intro-screen');
+        intro.classList.add('opacity-0', 'pointer-events-none');
+        
+        const main = document.getElementById('main-content');
+        main.classList.remove('hidden');
+        setTimeout(() => {
+          main.classList.add('opacity-100');
+          handleScrollReveal();
+        }, 50);
+
+        setTimeout(() => {
+          intro.classList.add('hidden');
+        }, 1500);
+      }, 1600);
+    }
+
+    // 3. Audio Player toggler
+    function togglePlayState() {
+      const audio = document.getElementById('wedding-music');
+      if (audio.paused) {
+        audio.play().then(() => {
+          setMusicPlayingUI(true);
+        });
+      } else {
+        audio.pause();
+        setMusicPlayingUI(false);
+      }
+    }
+
+    function setMusicPlayingUI(isPlaying) {
+      const ring1 = document.getElementById('ring-1');
+      const ring2 = document.getElementById('ring-2');
+      const playIcon = document.getElementById('music-playing-icon');
+      const muteIcon = document.getElementById('music-muted-icon');
+
+      if (isPlaying) {
+        ring1.classList.remove('hidden');
+        ring2.classList.remove('hidden');
+        playIcon.classList.remove('hidden');
+        muteIcon.classList.add('hidden');
+      } else {
+        ring1.classList.add('hidden');
+        ring2.classList.add('hidden');
+        playIcon.classList.add('hidden');
+        muteIcon.classList.remove('hidden');
+      }
+    }
+
+    // 4. Live Interactive Countdown Clock
+    function startCountdown() {
+      const targetTime = new Date(WEDDING_DATE_ISO).getTime();
+
+      const updateClock = () => {
+        const difference = targetTime - new Date().getTime();
+        if (difference <= 0) {
+          document.getElementById('cd-days').innerText = '00';
+          document.getElementById('cd-hours').innerText = '00';
+          document.getElementById('cd-minutes').innerText = '00';
+          document.getElementById('cd-seconds').innerText = '00';
+          return;
+        }
+
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').innerText = String(d).padStart(2, '0');
+        document.getElementById('cd-hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('cd-minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('cd-seconds').innerText = String(s).padStart(2, '0');
+      };
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    }
+
+    // 5. Scroll Reveal triggers
+    function handleScrollReveal() {
+      const winHeight = window.innerHeight;
+      document.querySelectorAll('.reveal').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < winHeight - 60) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleScrollReveal);
+
+    // 6. Gold embers and rose petals canvas simulation
+    const canvas = document.getElementById('ambient-canvas');
+    const ctx = canvas.getContext('2d');
+    let particlesList = [];
+
+    class GoldEmber {
+      constructor(width, height, init = false) {
+        this.width = width;
+        this.height = height;
+        this.reset(init);
+      }
+      reset(init = false) {
+        this.x = Math.random() * this.width;
+        this.y = init ? Math.random() * this.height : this.height + Math.random() * 80;
+        this.size = Math.random() * 2.8 + 1.0;
+        this.speedY = Math.random() * 0.3 + 0.1;
+        this.speedX = Math.random() * 0.2 - 0.1;
+        this.baseOpacity = Math.random() * 0.5 + 0.2;
+        this.opacity = this.baseOpacity;
+        this.phase = Math.random() * Math.PI * 2;
+        this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.phase += this.twinkleSpeed;
+        this.opacity = this.baseOpacity + Math.sin(this.phase) * 0.15;
+        this.x += this.speedX + Math.sin(this.phase) * 0.1;
+        if (this.y < -30 || this.x < -30 || this.x > this.width + 30) {
+          this.reset(false);
+        }
+      }
+      draw(c) {
+        c.save();
+        c.beginPath();
+        const glowRadius = this.size * 3.5;
+        const radialGlow = c.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowRadius);
+        radialGlow.addColorStop(0, `rgba(255, 249, 242, ${this.opacity})`);
+        radialGlow.addColorStop(0.3, `rgba(212, 175, 55, ${this.opacity * 0.8})`);
+        radialGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        c.fillStyle = radialGlow;
+        c.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
+        c.fill();
+        c.restore();
+      }
+    }
+
+    class RosePetal {
+      constructor(width, height, init = false) {
+        this.width = width;
+        this.height = height;
+        this.reset(init);
+      }
+      reset(init = false) {
+        this.x = Math.random() * this.width;
+        this.y = init ? Math.random() * this.height : -20 - Math.random() * 80;
+        this.size = Math.random() * 6 + 3;
+        this.speedY = Math.random() * 0.6 + 0.3;
+        this.speedX = Math.random() * 0.3 - 0.15;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = Math.random() * 0.02 - 0.01;
+        this.phase = Math.random() * Math.PI * 2;
+        this.swaySpeed = Math.random() * 0.015 + 0.005;
+        this.opacity = Math.random() * 0.35 + 0.4;
+        const colors = [
+          'rgba(234, 175, 184, opacity)',
+          'rgba(223, 172, 185, opacity)',
+          'rgba(243, 203, 211, opacity)'
+        ];
+        this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.y += this.speedY;
+        this.angle += this.spin;
+        this.phase += this.swaySpeed;
+        this.x += this.speedX + Math.sin(this.phase) * 0.3;
+        if (this.y > this.height + 20 || this.x < -20 || this.x > this.width + 20) {
+          this.reset(false);
+        }
+      }
+      draw(c) {
+        c.save();
+        c.translate(this.x, this.y);
+        c.rotate(this.angle);
+        c.beginPath();
+        c.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
+        c.fillStyle = this.colorBase.replace('opacity', this.opacity.toString());
+        c.fill();
+        c.restore();
+      }
+    }
+
+    function setupCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      particlesList = [];
+      const count = Math.min(65, Math.floor((canvas.width * canvas.height) / 15000));
+      for (let i = 0; i < count; i++) {
+        if (i % 2 === 0) {
+          particlesList.push(new GoldEmber(canvas.width, canvas.height, true));
+        } else {
+          particlesList.push(new RosePetal(canvas.width, canvas.height, true));
+        }
+      }
+    }
+
+    function renderCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particlesList) {
+        p.update();
+        p.draw(ctx);
+      }
+      requestAnimationFrame(renderCanvas);
+    }
+    
+    window.addEventListener('resize', () => {
+      setupCanvas();
+    });
+
+    // 7. Interactive Blessings Guestbook (Starts completely clean as requested!)
+    function loadGuestbookWishes() {
+      const scroller = document.getElementById('wishes-scroller');
+      const stored = localStorage.getItem('Dr Anas N_Dr Nafida Shajihan_wedding_wishes_clean');
+      let wishes = [];
+
+      if (stored) {
+        try {
+          wishes = JSON.parse(stored);
+        } catch(e) {
+          wishes = [];
+        }
+      }
+
+      if (wishes.length === 0) {
+        scroller.innerHTML = `
+          <div class="flex flex-col items-center justify-center h-full text-center p-6 border border-dashed border-gold/15 rounded-2xl bg-burgundy-dark/20 text-gold-rose/70 font-serif italic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-gold/20 mb-3"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            No blessings have been shared yet.<br>Be the first to share your prayers with the couple!
+          </div>
+        `;
+        return;
+      }
+
+      scroller.innerHTML = wishes.map(w => `
+        <div class="relative border border-gold/15 border-l-2 border-l-gold bg-burgundy-dark/60 rounded-r-2xl rounded-bl-2xl p-5 shadow-md hover:border-gold/30 transition-all duration-300">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-display text-sm font-semibold text-gold-hover">${escapeHTML(w.name)}</span>
+            <span class="font-sans text-[0.6rem] tracking-wider text-gold/60">${w.date}</span>
+          </div>
+          <div class="relative">
+            <p class="font-serif text-[1.05rem] leading-relaxed text-ivory/90 pl-3 italic">"${escapeHTML(w.message)}"</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('guest-name');
+      const messageInput = document.getElementById('guest-message');
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (!name || !message) return;
+
+      const stored = localStorage.getItem('Dr Anas N_Dr Nafida Shajihan_wedding_wishes_clean');
+      let wishes = [];
+      if (stored) {
+        try { wishes = JSON.parse(stored); } catch(e) { wishes = []; }
+      }
+
+      const newWish = {
+        id: String(Date.now()),
+        name: name,
+        message: message,
+        date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+      };
+
+      wishes.unshift(newWish);
+      localStorage.setItem('Dr Anas N_Dr Nafida Shajihan_wedding_wishes_clean', JSON.stringify(wishes));
+
+      nameInput.value = '';
+      messageInput.value = '';
+
+      loadGuestbookWishes();
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
+    // 8. Bootstrap everything on load
+    document.addEventListener('DOMContentLoaded', () => {
+      initCalendarLink();
+      initReceptionCalendarLink();
+      startCountdown();
+      setupCanvas();
+      renderCanvas();
+      loadGuestbookWishes();
+    });
+  </script>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="rsvp.js"></script>
+
+</body>
+</html>
